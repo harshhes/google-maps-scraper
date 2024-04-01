@@ -51,20 +51,21 @@ def main(output_file, num_of_listing):
         page.keyboard.press("Enter")
         page.wait_for_timeout(5000)
 
-        page.hover("(//div[@class='Nv2PK THOPZb CpccDe '])[1]")
+        # page.hover("(//div[@class='Nv2PK THOPZb CpccDe '])[1]")
+        page.hover("(//div[contains(@class, 'THOPZb ')])[1]")
         
         while True:
             page.mouse.wheel(0, 10000)
             page.wait_for_timeout(3000)
             try:
-                page.wait_for_selector('//span[@class="HlvSq"]', timeout=2500)
+                page.wait_for_selector('(//span[@class="HlvSq"])[1]', timeout=2500)
                 print("Reached the end of the list. Exiting the loop.")
                 break
             except Exception as e:
                 print(e) 
                 pass
             
-            listings = page.locator("//div[@class='Nv2PK THOPZb CpccDe ']").all()
+            listings = page.locator("//div[contains(@class, 'THOPZb ')]").all()
             print(len(listings), "Total LISTINGS!!!!-----------")
             if num_of_listing:
                 if len(listings) >= num_of_listing:
@@ -114,6 +115,6 @@ def main(output_file, num_of_listing):
         browser.close()
 
 if __name__ == "__main__":
-    search_for = "jewellery stores in Lajpat Nagar Delhi"
+    search_for = "Hospitals in Lajpat Nagar Delhi"
 
-    main(output_file='jewels_del', num_of_listing=None)
+    main(output_file='hospitals_LJPT', num_of_listing=2)
