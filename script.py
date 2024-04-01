@@ -58,7 +58,7 @@ def main(output_file, num_of_listing):
             page.mouse.wheel(0, 10000)
             page.wait_for_timeout(3000)
             try:
-                page.wait_for_selector('(//span[@class="HlvSq"])[1]', timeout=2500)
+                page.wait_for_selector("//span[contains(text(), \"You've reached the end of the list.\")]", timeout=2500)
                 print("Reached the end of the list. Exiting the loop.")
                 break
             except Exception as e:
@@ -117,4 +117,4 @@ def main(output_file, num_of_listing):
 if __name__ == "__main__":
     search_for = "Hospitals in Lajpat Nagar Delhi"
 
-    main(output_file='hospitals_LJPT', num_of_listing=2)
+    main(output_file='hospitals_LJPT', num_of_listing=None)
