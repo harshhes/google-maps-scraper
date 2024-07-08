@@ -115,6 +115,10 @@ def main(output_file, num_of_listing):
         browser.close()
 
 if __name__ == "__main__":
-    search_for = "Hospitals in Lajpat Nagar Delhi"
+    search_for = "Doctors and clinics in Moolchand"
 
-    main(output_file='hospitals_LJPT', num_of_listing=None)
+    slug = search_for.replace(" ", "_").lower()
+    output_file = f'DEL_LJPT/{slug}.txt'
+
+    main(output_file=output_file, num_of_listing=None)  
+    # put num_of_listing = None if you want all the listings, otherwise put your desired number
