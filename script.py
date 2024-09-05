@@ -115,7 +115,7 @@ def main(output_file, num_of_listing):
         browser.close()
 
 if __name__ == "__main__":
-    search_for = "Doctors and clinics in Moolchand"
+    search_for = "Architects in paschim vihar"
 
     slug = search_for.replace(" ", "_").lower()
     output_file = f'DEL_LJPT/{slug}.txt'
